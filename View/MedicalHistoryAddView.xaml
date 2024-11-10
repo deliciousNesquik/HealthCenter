@@ -1,0 +1,77 @@
+﻿<Page x:Class="Application.Database.MedicalHistoryAddView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Application.Database"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MedicalHistoryAddView">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Column="0" Margin="10">
+
+            <!-- Группа выбора пациента и врача -->
+            <GroupBox Header="Информация о пациенте" Margin="0,0,0,10">
+                <StackPanel Orientation="Vertical" Margin="10">
+                    <!-- Пациент -->
+                    <TextBlock Text="Пациент:" Margin="0,5,0,2"/>
+                    <ComboBox x:Name="PatientComboBox" Width="300">
+                    </ComboBox>
+
+                    <!-- Врач -->
+                    <TextBlock Text="Врач:" Margin="0,10,0,2"/>
+                    <ComboBox x:Name="DoctorComboBox" Width="300">
+                    </ComboBox>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- Группа диагноза и лечения -->
+            <GroupBox Header="Диагноз и лечение" Margin="0,0,0,10">
+                <StackPanel Orientation="Vertical" Margin="10">
+                    <!-- Диагноз -->
+                    <TextBlock Text="Диагноз:" Margin="0,5,0,2"/>
+                    <ComboBox x:Name="DiagnosisComboBox" Width="300">
+                    </ComboBox>
+
+                    <!-- Назначения лечения -->
+                    <TextBlock Text="Назначения лечения:" Margin="0,10,0,2"/>
+                    <TextBox x:Name="TreatmentTextBox" Width="300" Height="80" AcceptsReturn="True" 
+                     TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+        <!-- Правая колонка -->
+        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="10">
+
+            <!-- Группа информации о датах и типе лечения -->
+            <GroupBox Header="Информация о лечении">
+                <StackPanel Orientation="Vertical" Margin="10">
+                    <!-- Дата заболевания -->
+                    <TextBlock Text="Дата заболевания:" Margin="0,5,0,2"/>
+                    <DatePicker x:Name="DiseaseDatePicker" Width="300"/>
+
+                    <!-- Дата вылечивания -->
+                    <TextBlock Text="Дата вылечивания:" Margin="0,10,0,2"/>
+                    <DatePicker x:Name="RecoveryDatePicker" Width="300"/>
+
+                    <!-- Тип лечения -->
+                    <TextBlock Text="Тип лечения:" Margin="0,10,0,2"/>
+                    <ComboBox x:Name="TreatmentTypeComboBox" Width="300">
+                    </ComboBox>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- Кнопка для сохранения -->
+            <Button Content="Сохранить" FontWeight="Bold" Click="SaveMedicalHistoryButton_Click" Background="{DynamicResource FocusingColor}" Opacity="0.8" Width="300" Margin="0,20,0,0" HorizontalAlignment="Center" Padding="10,5"/>
+        </StackPanel>
+
+    </Grid>
+</Page>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7afee80b8aee47e5884c44c6ebe9843d" Name="Diagram1">
+        <EntityTypeShape EntityType="HealthCenterModel.Departments" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthCenterModel.Diagnoses" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthCenterModel.Employee" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthCenterModel.Genders" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthCenterModel.MedicalHistory" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthCenterModel.Patients" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthCenterModel.TypeOfTreatments" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <AssociationConnector Association="HealthCenterModel.FK__Departmen__HeadO__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthCenterModel.FK__Employee__IDDepa__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthCenterModel.FK__MedicalHi__IDDia__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthCenterModel.FK__MedicalHi__IDEmp__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthCenterModel.FK__Patients__IDGend__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthCenterModel.FK__MedicalHi__IDPat__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthCenterModel.FK__MedicalHi__IDTyp__4AB81AF0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
