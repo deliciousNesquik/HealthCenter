@@ -16,20 +16,9 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Name="CountRecordsTextBlock" 
-                   Text="Общее количество записей: "
-                   FontSize="15"
-                   Opacity="0.8"
-                   Grid.Row="2"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Margin="10 5 0 5"/>
+        <TextBlock Name="CountRecordsTextBlock" Text="Общее количество записей: " FontSize="15" Opacity="0.8" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 5 0 5"/>
 
-        <StackPanel Orientation="Horizontal"
-                    Grid.Row="0"
-                    Margin="-24 0 0 0"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left">
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="-24 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left">
 
             <Button Name="UpdateButton" Style="{DynamicResource TouchButton}" MouseEnter="UpdateButton_MouseEnter" MouseLeave="UpdateButton_MouseLeave" Click="UpdateButton_Click" Grid.Row="2" Margin="35 0 0 0" Opacity="0.8" Background="{DynamicResource FocusingColor}" Width="25" Height="25" BorderThickness="0">
                 <Button.Content>
@@ -58,56 +47,26 @@
                     </Style>
                 </Button.Resources>
             </Button>
-
         </StackPanel>
         
-        
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Height="28">
 
-        <StackPanel Orientation="Horizontal" 
-                    Grid.Row="0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Margin="10"
-                    Height="28">
-
-            <TextBlock Text="Сегодня"
-                       FontSize="20"
-                       FontWeight="Bold"
-                       TextAlignment="Center"
-                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Name="TodayTextBlock"
-                       FontSize="15"
-                       Margin="10 4 0 0"
-                       Text="8 ноября 2024"
-                       TextAlignment="Center"
-                       VerticalAlignment="Center" Opacity="0.8"/>
+            <TextBlock Text="Сегодня" FontSize="20" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Name="TodayTextBlock" FontSize="15" Margin="10 4 0 0" Text="8 ноября 2024" TextAlignment="Center" VerticalAlignment="Center" Opacity="0.8"/>
         </StackPanel>
 
-
-
-        <ListView Name="MedicalHistoryListView" 
-                  HorizontalContentAlignment="Stretch" 
-                  Grid.Row="1" Grid.Column="0" 
-                  Background="{x:Null}"
-                  BorderThickness="0"
-                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                  VirtualizingPanel.ScrollUnit="Pixel"
-                  ScrollViewer.CanContentScroll="False" d:ItemsSource="{d:SampleData ItemCount=5}">
-
+        <ListView Name="MedicalHistoryListView" HorizontalContentAlignment="Stretch" Grid.Row="1" Grid.Column="0" Background="{x:Null}" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Hidden" VirtualizingPanel.ScrollUnit="Pixel" ScrollViewer.CanContentScroll="False" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
-                    <!-- Убираем выделение -->
                     <Setter Property="Background" Value="Transparent"/>
                     <Setter Property="BorderBrush" Value="Transparent"/>
                     <Setter Property="BorderThickness" Value="0"/>
-
-                    <!-- Состояние при наведении -->
+                    
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="LightGray"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <!-- Убираем выделение при выборе -->
                             <Setter Property="Background" Value="Transparent"/>
                             <Setter Property="BorderBrush" Value="Transparent"/>
                         </Trigger>
@@ -119,29 +78,19 @@
                 <DataTemplate>
                     <Border Name="MedicalHistoryCard" FocusVisualStyle="{x:Null}" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" BorderBrush="Gray" BorderThickness="1" CornerRadius="8" Margin="5" Padding="10" Background="White">
                         <StackPanel Orientation="Vertical">
-
-                            <!-- Информация о пациенте -->
                             <TextBlock FontWeight="Bold" FontSize="16" Text="Пациент:" />
                             <TextBlock FontWeight="Bold" FontSize="16" Text="{Binding PatientFullName}" Margin="0,0,0,5" />
-
-                            <!-- Информация о сотруднике -->
                             <TextBlock FontWeight="Bold" FontSize="14" Text="Лечащий врач:" />
                             <TextBlock FontWeight="Normal" FontSize="14" Text="{Binding EmployeeFullName}" Margin="0,0,0,10" Foreground="Gray" />
-
-                            <!-- Диагноз и тип лечения -->
                             <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
                                 <TextBlock FontWeight="Bold" Text="Диагноз: " FontSize="14" />
                                 <TextBlock Text="{Binding DiagnoseTitle}" FontSize="14" Foreground="Black" Margin="5,0,20,0" />
-
                                 <TextBlock FontWeight="Bold" Text="Тип лечения: " FontSize="14" />
                                 <TextBlock Text="{Binding TypeOfTreatmentTitle}" FontSize="14" Foreground="Black" Margin="5,0,0,0" />
                             </StackPanel>
-
-                            <!-- Даты начала и окончания лечения -->
                             <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                                 <TextBlock FontWeight="Bold" Text="Дата начала: " FontSize="14" />
                                 <TextBlock Text="{Binding DateOfTheDiseaseFormat}" FontSize="14" Margin="5,0,20,0" />
-
                                 <TextBlock FontWeight="Bold" Text="Дата окончания: " FontSize="14" />
                                 <TextBlock Text="{Binding DateOfCureFormat}" FontSize="14" Margin="5,0,0,0" />
                             </StackPanel>

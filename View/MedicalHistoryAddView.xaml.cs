@@ -53,48 +53,9 @@ namespace Application.Database
 
         private void SaveMedicalHistoryButton_Click(object sender, RoutedEventArgs e)
         {
-            StringBuilder errors = new StringBuilder();
-            bool dateCheck = true;
+            StringBuilder errors = ValidationUserData();
 
-            if(PatientComboBox.SelectedIndex == -1)
-            {
-                errors.AppendLine("Выберите пациента!");
-            }
-            if(DoctorComboBox.SelectedIndex == -1)
-            {
-                errors.AppendLine("Выберите врача!");
-            }
-            if(DiagnosisComboBox.SelectedIndex == -1)
-            {
-                errors.AppendLine("Выберите диагноз!");
-            }
-            if(TreatmentTypeComboBox.SelectedIndex == -1)
-            {
-                errors.AppendLine("Выберите вид лечения!");
-            }
-
-            if (string.IsNullOrEmpty(TreatmentTextBox.Text) && string.IsNullOrWhiteSpace(TreatmentTextBox.Text))
-            {
-                errors.AppendLine("Введите назначения лечения!");
-            }
-
-            if (DiseaseDatePicker.SelectedDate == null)
-            {
-                errors.AppendLine("Выберите дату заболевания!");
-                dateCheck = false;
-            }
-            if (RecoveryDatePicker.SelectedDate == null)
-            {
-                errors.AppendLine("Выберите дату вылечивания!");
-                dateCheck = false;
-            }
-            if (dateCheck == true && DiseaseDatePicker.SelectedDate > RecoveryDatePicker.SelectedDate)
-            {
-                errors.AppendLine("Дата заболевания не может быть больше даты вылечивания!");
-            }
-            
-
-            if(errors.Length > 0)
+            if (errors.Length > 0)
             {
                 MessageBox.Show(errors.ToString(), "Ошибка сохранения");
                 return;
@@ -151,6 +112,51 @@ namespace Application.Database
                     MessageBox.Show("Добавление записи не произошло!" + ex.Message.ToString(), "Ошибка сохранения");
                 }
             }
+        }
+
+        private StringBuilder ValidationUserData()
+        {
+            StringBuilder errors = new StringBuilder();
+            bool dateCheck = true;
+
+            if (PatientComboBox.SelectedIndex == -1)
+            {
+                errors.AppendLine("Выберите пациента!");
+            }
+            if (DoctorComboBox.SelectedIndex == -1)
+            {
+                errors.AppendLine("Выберите врача!");
+            }
+            if (DiagnosisComboBox.SelectedIndex == -1)
+            {
+                errors.AppendLine("Выберите диагноз!");
+            }
+            if (TreatmentTypeComboBox.SelectedIndex == -1)
+            {
+                errors.AppendLine("Выберите вид лечения!");
+            }
+
+            if (string.IsNullOrEmpty(TreatmentTextBox.Text) && string.IsNullOrWhiteSpace(TreatmentTextBox.Text))
+            {
+                errors.AppendLine("Введите назначения лечения!");
+            }
+
+            if (DiseaseDatePicker.SelectedDate == null)
+            {
+                errors.AppendLine("Выберите дату заболевания!");
+                dateCheck = false;
+            }
+            if (RecoveryDatePicker.SelectedDate == null)
+            {
+                errors.AppendLine("Выберите дату вылечивания!");
+                dateCheck = false;
+            }
+            if (dateCheck == true && DiseaseDatePicker.SelectedDate > RecoveryDatePicker.SelectedDate)
+            {
+                errors.AppendLine("Дата заболевания не может быть больше даты вылечивания!");
+            }
+
+            return errors;
         }
     }
 }
